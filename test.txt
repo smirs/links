@@ -1,0 +1,8 @@
+%%time
+if len(cat_all)>0:
+    df = datX.drop(columns=cat_all)
+    for i in cat_all:
+        dummies = pd.get_dummies(datX[i], prefix=i[0:3], prefix_sep='_', sparse=True)
+        df = pd.concat([df, dummies], axis=1)
+else:
+    df = datX
